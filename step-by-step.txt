@@ -1,0 +1,45 @@
+Установка нового проекта через команду 
+django-admin startproject asgard
+
+Установка виртуального окружения
+python -m venv env
+
+!Активация: 
+env\scripts\activate
+
+Создание нового приложения service
+django-admin startapp service
+
+Установка библиотеки для работы с картинками
+pip install Pillow
+
+Утилита для генерации slug из кириллицы
+pip install pyutils
+====================================================================================================
+	НАСТРОЙКА ДЖАНГО (settings.py)
+Установка приложений в раздел INSTALLED_APPS
+	'service.apps.ServiceConfig',
+
+Указание папки шаблонов TEMPLATES
+	'DIRS': ['templates']
+
+Указание папки для статики:
+STATIC_URL = '/static/'
+MEDIA_URL = '/images/'
+MEDIA_ROOT = BASE_DIR / "static/images"
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+====================================================================================================
+в файле urls.py проекта:
+
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns = [
+    ...
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+====================================================================================================
+Создание моделей и регистрация их в админке
+
+====================================================================================================

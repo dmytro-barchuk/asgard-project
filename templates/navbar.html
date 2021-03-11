@@ -1,0 +1,52 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark" style="background-color: #172531;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <img src="{% static 'icons/logo.svg'%}" alt="..." height="60px">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'service_list' %}">Услуги</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'payment' %}">Оплата</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'news_list' %}">Новости</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'contacts' %}">Контакты</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'comments_view' %}">Отзывы</a>
+        </li>
+      </ul>
+      
+      <div class="d-flex ml-auto">
+        <ul class="navbar-nav me-auto my-1 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">
+            <img src="{% static 'icons/ua.svg' %}" width="25px">
+            Українська</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">
+            <img src="{% static 'icons/us.svg' %}" width="25px">
+            English</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">
+            <img src="{% static 'icons/ru.svg' %}" width="25px">
+            Русский</a>
+          </li>         
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</nav>

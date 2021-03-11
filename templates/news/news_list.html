@@ -1,0 +1,31 @@
+{% extends 'base.html'%}
+
+{%block content%}
+
+{% for item in news_list %}
+	<div class="container-fluid col-md-10">	
+		<div class="news-main">
+		  <div class="card text-white bg-transparent border-0">
+			<div class="card-body">
+			<div class="row">
+				<div class="col-sm">
+				<h3 class="card-title p-1">{{item.news_title}}</h2>
+				</div>
+              	<div class="col-sm">
+				<p class="text-end">Опубликовано: {{item.updated|date:"d.m.Y"}}</p>
+				</div>
+			</div>
+				{% if item.image %}
+				<a href="{{item.slug}}">
+				<img class="card-img-top" src="{{item.image.url}}" alt="" style="max-width: 400px; display: block; margin: 0 auto; border-radius: 5px;">
+				</a>
+				{%endif%}
+				<p class="card-text">{{item.body|safe|linebreaks|slice:300}}</p>
+			  <a href="{{item.slug}}" class="btn btn-light">Читать далее</a>
+			</div>
+		  </div>
+		</div>
+	</div>
+{% endfor %}
+
+{%endblock content%}

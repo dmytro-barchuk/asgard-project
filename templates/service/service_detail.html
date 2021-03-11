@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+
+{%block content%}
+
+<div id="article">
+{% if object.image %}
+    <img class="img-fluid mx-auto d-block" style="border-radius: 20px;" src="{{object.image.url}}">
+{% endif %}
+<h2>{{object.service_name}}</h2>
+<p class "plain-text">{{object.body|safe|linebreaks}}</p>
+
+</div>
+
+{%endblock content%}

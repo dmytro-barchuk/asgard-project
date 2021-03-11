@@ -1,0 +1,34 @@
+{% extends 'base.html'%}
+
+{%block content%}
+
+{% regroup service_list by category as new %}
+{% for category in new %}
+<h2>{{ category.grouper}}</h2>
+	<div class="row">	
+	{% for item in category.list %}				
+		<div class="col-md-4">
+		  <div class="card text-white bg-transparent border-0">
+			<div class="card-body">
+			  <h5 class="card-title text-center">{{item.service_name}}</h5>
+				{% if item.image %}
+				<a href="{{item.slug}}">
+				<img class="card-img-top" src="{{item.image.url}}" alt="">
+				</a>
+				{%endif%}
+				<!-- Проверяем если слишком большой текст - режем -->
+				{% if item.body|length > 300 %}
+					<p class="card-text">{{item.body|safe|linebreaks|slice:300}}...</p>
+				{% else %}
+					<p class="card-text">{{item.body|safe|linebreaks }}</p>
+				{% endif %}
+			  <a href="{{item.slug}}" class="btn btn-dark">Подробнее о услуге</a>
+			</div>
+		  </div>
+		</div>
+		
+	{% endfor %}
+	</div>
+{% endfor %}
+
+{%endblock content%}

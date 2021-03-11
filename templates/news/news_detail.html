@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+
+{%block content%}
+
+<div id="article">
+<h2>{{object.news_title}}</h2>
+{% if object.image %}
+    <img class="img-fluid mx-auto d-block" style="border-radius: 20px; width: 40%;" id="article_img" src="{{object.image.url}}">
+{% endif %}
+
+<p class "plain-text">{{object.body|safe|linebreaks}}</p>
+
+</div>
+
+{%endblock content%}
