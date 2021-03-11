@@ -1,3 +1,13 @@
+	MAIL
+asgard_kr@protonmail.com
+<fljdYtCj,frf1983
+
+	https://www.pythonanywhere.com/
+asgardkr
+asgard_kr@protonmail.com
+<fljdYtCj,frf1983
+
+====================================================================================================
 Установка нового проекта через команду 
 django-admin startproject asgard
 

@@ -20,8 +20,9 @@
 				<img class="card-img-top" src="{{item.image.url}}" alt="" style="max-width: 400px; display: block; margin: 0 auto; border-radius: 5px;">
 				</a>
 				{%endif%}
-				<p class="card-text">{{item.body|safe|linebreaks|slice:300}}</p>
-			  <a href="{{item.slug}}" class="btn btn-light">Читать далее</a>
+				<p class="card-text">{{item.body|safe|linebreaks|truncatewords:50}} 
+					<a href="{{item.slug}}" class="btn btn-light">Читать далее</a></p>
+			  
 			</div>
 		  </div>
 		</div>

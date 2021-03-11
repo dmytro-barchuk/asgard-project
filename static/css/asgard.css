@@ -60,8 +60,8 @@ footer {
 	opacity:1;
   }
 
-  .card:hover .card-img-top,
-  .card:focus .card-img-top {
+  .card-img-top:hover,
+  .card-img-top:focus {
 	transform: scale(1.1)!important;
 	opacity:0.5;
   }
@@ -77,8 +77,4 @@ footer {
 
 .card-title{
 	text-transform: uppercase;
-}
-
-.main-style {
-	background-color: red;
 }
