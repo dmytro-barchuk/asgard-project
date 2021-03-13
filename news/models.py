@@ -3,9 +3,9 @@ from pytils.translit import slugify
 
 
 class News(models.Model):
-	news_title = models.CharField(max_length=100)
-	image = models.ImageField(verbose_name = "Малюнок або фото:", null=True, blank=True, upload_to="news/%Y/%M/")
-	body = models.TextField(verbose_name ="Опис (не обов'язково):", null=True, blank=True)
+	news_title = models.CharField(verbose_name = "Заголовок:", max_length=100)
+	image = models.ImageField(verbose_name = "Фото:", null=True, blank=True, upload_to="news/%Y/%M/")
+	body = models.TextField(verbose_name ="Текст новости:", null=True, blank=True)
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
 	active = models.BooleanField(default=True)

@@ -2,6 +2,9 @@
 
 {%block content%}
 
+
+
+
 {% for item in news_list %}
 	<div class="container-fluid col-md-10">	
 		<div class="news-main">
@@ -21,12 +24,22 @@
 				</a>
 				{%endif%}
 				<p class="card-text">{{item.body|safe|linebreaks|truncatewords:50}} 
-					<a href="{{item.slug}}" class="btn btn-light">Читать далее</a></p>
-			  
+					<a href="{{item.slug}}" class="btn btn-light">Читать далее</a>
+				{% if user.is_staff %}
+					<a href="{% url 'news:news_update' item.id %}" class="btn btn-warning">Редактировать новость</a>
+					<a href="{% url 'news:news_delete' item.id %}" class="btn btn-danger">Удалить новость</a>
+				{% endif %}	
+				</p>
 			</div>
 		  </div>
 		</div>
 	</div>
 {% endfor %}
+
+{% if user.is_staff %}
+	<div class="container-fluid col-md-10">
+	<a href="{% url 'news:news_create' %}" class="btn btn-warning"">Добавить новость</a>
+	</div>
+{% endif %}
 
 {%endblock content%}

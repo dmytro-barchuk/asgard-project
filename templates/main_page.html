@@ -23,6 +23,11 @@
         
     </p>
     
+    {% if user.is_staff %}
+    <p class="p-2 bg-dark">
+        Тут будут админские штучки всякие        
+    </p>        
+    {% endif %}
     
 
 </div>

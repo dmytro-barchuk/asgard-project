@@ -2,14 +2,28 @@
 
 {%block content%}
 
-<div id="article">
-<h2>{{object.news_title}}</h2>
-{% if object.image %}
-    <img class="img-fluid mx-auto d-block" style="border-radius: 20px; width: 40%;" id="article_img" src="{{object.image.url}}">
-{% endif %}
+<div class="container-fluid col-md-10">	
+    <div class="news-main">
+      <div class="card text-white bg-transparent border-0">
+        <div class="card-body">
+        <div class="row">
+            <div class="col-sm">
+            <h3 class="card-title p-1">{{object.news_title}}</h2>
+            </div>
+              <div class="col-sm">
+            <p class="text-end">Опубликовано: {{object.created|date:"d.m.Y"}}</p>
+            </div>
+        </div>
+            {% if object.image %}
+            <img class="img-fluid mx-auto d-block" src="{{object.image.url}}" alt="" style="margin: 0 auto; border-radius: 5px;">            
+            {%endif%}
+            <p class="card-text">{{object.body|safe|linebreaks}}</p>
 
-<p class "plain-text">{{object.body|safe|linebreaks}}</p>
-
+        </div>
+      </div>
+    </div>
 </div>
+
+
 
 {%endblock content%}

@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+{% load crispy_forms_tags %}
+{%block content%}
+
+<div class="container-fluid col-md-10">	
+    <div class="news-main">
+      <div class="card text-white bg-transparent border-0">
+        <div class="card-body">
+        <div class="row">
+            <form method="post">{% csrf_token %}
+                <div class="text-center">
+                <H2>Точно хотите удалить новость "{{ object }}"?</H2>
+                <br>                
+                <input type="submit" value="Да, удалить!!!" class="btn btn-danger">
+                <input type="submit" class="btn btn-success" onclick="window.location='{% url 'news:news_list' %}' ; return false;" value="Нет, бес попутал!">
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+{%endblock content%}
