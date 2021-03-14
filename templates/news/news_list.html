@@ -36,10 +36,4 @@
 	</div>
 {% endfor %}
 
-{% if user.is_staff %}
-	<div class="container-fluid col-md-10">
-	<a href="{% url 'news:news_create' %}" class="btn btn-warning"">Добавить новость</a>
-	</div>
-{% endif %}
-
 {%endblock content%}

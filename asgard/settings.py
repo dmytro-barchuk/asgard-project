@@ -28,6 +28,8 @@ INSTALLED_APPS = [
     # Приложения пользователя
     'service.apps.ServiceConfig',
     'news.apps.NewsConfig',
+    'info.apps.InfoConfig',
+    # Сторонние приложения
     'crispy_forms',
 ]
 

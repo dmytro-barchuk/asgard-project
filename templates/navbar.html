@@ -14,13 +14,13 @@
           <a class="nav-link active" aria-current="page" href="{% url 'service_list' %}">Услуги</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'payment' %}">Оплата</a>
+          <a class="nav-link active" aria-current="page" href="{% url 'info:payments' %}">Оплата</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{% url 'news:news_list' %}">Новости</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'contacts' %}">Контакты</a>
+          <a class="nav-link active" aria-current="page" href="{% url 'info:contacts' %}">Контакты</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{% url 'comments_view' %}">Отзывы</a>
@@ -38,7 +38,8 @@
               <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                 <li><a class="dropdown-item" href="{% url 'logout' %}">Выход</a></li>
                 <li><a class="dropdown-item" href="{% url 'news:news_create' %}">Добавить новость</a></li>
-                <li><a class="dropdown-item" href="#">Добавить услугу</a></li>
+                <li><a class="dropdown-item" href="{% url 'info:payment_create' %}">Добавить вариант оплаты</a></li>
+                <li><a class="dropdown-item" href="{% url 'info:contact_create' %}">Добавить контактную инфу</a></li>
               </ul>
           {% else %}
             <ul class="navbar-nav">

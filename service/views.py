@@ -19,7 +19,7 @@ class ServiceList(ListView):
 	model = Service
 	context_object_name = 'service_list'
 	# Упорядочивание по дате публикации
-	queryset = Service.objects.select_related('category').order_by('-category', '-updated')
+	queryset = Service.objects.select_related('category').order_by('category', '-updated')
 
 def comments_view(request):
     comments = Comment.objects.filter(active=True).order_by('-created')
