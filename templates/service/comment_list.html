@@ -2,8 +2,8 @@
 
 {%block content%}
 <h2 class="p-3">Отзывы</h2>
-{%if comments %}
-    {% for comment in comments%}
+{%if page_obj %}
+    {% for comment in page_obj %}
     <div class="container-fluid col-md-10">	
 		<div class="news-main">
 		  <div class="card text-white bg-transparent border-0">
@@ -27,8 +27,33 @@
     <h2>Отзывы пока отсутствуют</h2>
 {%endif%}
 
+
+
+<!-- PAGINATION -->
+<div class="container-fluid col-md-10">
+        {% if page_obj.has_previous %}
+        	<a href="?page={{ page_obj.previous_page_number }}"><<</a>
+		{% endif %}
+        
+        {% if page_obj.paginator.num_pages > 1 %}
+		<hr>
+			{% for i in page_obj.paginator.page_range %}
+				{% if i == page_obj.number %}
+					<a href="?page={{i}}" style="font-weight: bolder; color: orange; font-size: larger;">{{i}}</a>
+				{%else%}
+					<a  href="?page={{i}}">{{i}}</a>
+				{%endif%}
+			{% endfor %}
+		{%endif%}
+
+        {% if page_obj.has_next %}
+			<a href="?page={{ page_obj.next_page_number }}">>></a>
+        {% endif %}
+</div>
+
+
+
 <hr>
 <h2><button class="btn-secondary"><a href="{% url 'new_comment' %}">Добавить отзыв</a></button></h2>
-
 
 {%endblock content%}

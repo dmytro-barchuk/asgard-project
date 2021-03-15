@@ -4,6 +4,8 @@ from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from service.models import Category, Service, Comment
 from service.forms import CommentForm
+from django.core.paginator import Paginator
+
 
 
 def main_page(request):
@@ -23,6 +25,9 @@ class ServiceList(ListView):
 
 def comments_view(request):
     comments = Comment.objects.filter(active=True).order_by('-created')
+    paginator = Paginator(comments, 10)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     
     if request.method == 'POST':
         form = CommentForm(request.POST)
@@ -32,7 +37,7 @@ def comments_view(request):
     else:
         form = CommentForm()
 
-    return render(request, 'service/comment_list.html', {'comments': comments, 'form': form})
+    return render(request, 'service/comment_list.html', {'comments': comments, 'form': form, 'page_obj': page_obj})
 
 def new_comment(request):
     form = CommentForm()

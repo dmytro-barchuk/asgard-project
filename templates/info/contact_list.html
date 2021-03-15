@@ -4,6 +4,7 @@
 
 <h2>Контакты</h2>
 
+{%if contact_list %}
 <div class="container-fluid col-md-10">	
     <div class="news-main">
       <div class="card text-white bg-transparent border-0">
@@ -28,6 +29,10 @@
       </div>
     </div>
 </div>
+{% else %}
+  <h2 class="bg-warning text-dark">К сожалению в базе данных отсутствует контактная информация</h2>
+  <h2 class="bg-warning text-dark">Добавьте контакты!!!</h2>
+{% endif %}
 
 
 {%endblock content%}

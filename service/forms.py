@@ -1,8 +1,11 @@
 from service.models import Comment
-from django import forms
 from django.forms import ModelForm
+from django.core.validators import MinLengthValidator
+from django.db import models
+
 
 class CommentForm(ModelForm):
+    
     # name = forms.CharField(max_length=100)
     class Meta:
         model = Comment

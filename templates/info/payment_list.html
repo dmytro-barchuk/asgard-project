@@ -4,6 +4,7 @@
 
 <h2>Варианты оплаты</h2>
 
+{%if payment_list %}
 <div class="container-fluid col-md-10">	
     <div class="news-main">
       <div class="card text-white bg-transparent border-0">
@@ -29,6 +30,9 @@
       </div>
     </div>
 </div>
-
+{% else %}
+  <h2 class="bg-warning text-dark p-1">К сожалению в базе данных отсутствует информация с вариантами оплаты</h2>
+  <h2 class="bg-warning text-dark p-1">Добавьте ее!!!</h2>
+{% endif %}
 
 {%endblock content%}

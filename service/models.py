@@ -1,5 +1,7 @@
 from django.db import models
 from pytils.translit import slugify
+from django.core.validators import MinLengthValidator
+
 
 class Category(models.Model):
 	title = models.CharField(max_length=30)
@@ -52,7 +54,9 @@ class Service(models.Model):
 class Comment(models.Model):
 	name = models.CharField(max_length=100)
 	email = models.EmailField(max_length=254, blank=True)
-	comment_text = models.TextField(null=True, blank=True)
+	comment_text = models.TextField(
+		validators=[MinLengthValidator(2, message="Не меньше 2 символов")]
+	)
 	created = models.DateTimeField(auto_now_add=True)
 	active = models.BooleanField(default=True)
 
