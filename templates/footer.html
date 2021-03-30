@@ -1,5 +1,9 @@
 <footer style="height: 40px;">
     <p class="text-center" style="font-size: small; margin-bottom: 0;">Разработка и сопровождение сайта: <a href="http://www.dvbarchuk.pp.ua">Дмитрий Барчук</a></p>
-    <p class="text-end" style="font-size: small; margin-top: 0; padding-right: 1em;">Тут будет статистика и прочая мелочь </p>
+    {% if user.is_authenticated %}
+    <p class="text-center" style="font-size: small; margin-bottom: 0;">Пользователь: "{{user}}" | <a href="{% url 'logout' %}">Logout</a></p>
+    {% else %}
+    <p class="text-center" style="font-size: small; margin-bottom: 0;"><a href="{% url 'login' %}">Login</a></p>
+    {% endif %}
 
 </footer>

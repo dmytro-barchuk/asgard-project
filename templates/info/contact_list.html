@@ -16,10 +16,11 @@
             {% for object in contact_list %}
             <li>{{object.name}}
                 {% if object.describe %}:
-                    {{ object.describe }}
+                    {{ object.describe|linebreaks }}
                 {% endif %}
                 {% if user.is_staff %}
                 <a href="{% url 'info:contact_update' object.id %}" class="btn btn-warning">Редактировать</a>
+                
                 <a href="{% url 'info:contact_delete' object.id %}" class="btn btn-danger">Удалить</a>
                 {% endif %}	
             </li>

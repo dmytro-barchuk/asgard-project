@@ -13,6 +13,7 @@
               <div class="col-sm">
             <p class="text-end">Опубликовано: {{object.created|date:"d.m.Y"}}</p>
             </div>
+            <hr>
         </div>
             {% if object.image %}
             <img class="img-fluid mx-auto d-block" src="{{object.image.url}}" alt="" style="margin: 0 auto; border-radius: 5px;">            
@@ -21,7 +22,9 @@
 
         </div>
       </div>
-    </div>
+      <hr>
+      <p class="text-center"><a href="{% url 'news:news_list' %}">К списку новостей</a></p>
+    </div>    
 </div>
 
 

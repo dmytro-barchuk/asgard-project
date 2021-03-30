@@ -15,9 +15,9 @@
             </div>
             <ul style="list-style-type:circle">
             {% for object in payment_list %}
-            <li>{{object.name}}
+            <li><u>{{object.name}}</u>
                 {% if object.describe %}:
-                    {{ object.describe }}
+                    {{ object.describe|safe|linebreaks }}
                 {% endif %}
                 {% if user.is_staff %}
                 <a href="{% url 'info:payment_update' object.id %}" class="btn btn-warning">Редактировать</a>
@@ -29,10 +29,10 @@
         </div>
       </div>
     </div>
-</div>
+  </div>
 {% else %}
   <h2 class="bg-warning text-dark p-1">К сожалению в базе данных отсутствует информация с вариантами оплаты</h2>
   <h2 class="bg-warning text-dark p-1">Добавьте ее!!!</h2>
 {% endif %}
-
+</div>
 {%endblock content%}

@@ -41,10 +41,6 @@
                 <li><a class="dropdown-item" href="{% url 'info:payment_create' %}">Добавить вариант оплаты</a></li>
                 <li><a class="dropdown-item" href="{% url 'info:contact_create' %}">Добавить контактную инфу</a></li>
               </ul>
-          {% else %}
-            <ul class="navbar-nav">
-              <li><a class="dropdown-item" href="{% url 'login' %}">Вход</a></li>
-            </ul>
           {% endif %} 
           <li class="nav-item">
             <a class="nav-link active" href="#">

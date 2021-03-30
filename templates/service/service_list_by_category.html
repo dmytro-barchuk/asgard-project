@@ -1,0 +1,13 @@
+{% extends 'base.html'%}
+
+{%block content%}
+
+<p>
+{{category.slug}}
+</p>
+
+{% for item in object %}
+    <p>{{item}}</p>
+{% endfor %}
+
+{%endblock content%}

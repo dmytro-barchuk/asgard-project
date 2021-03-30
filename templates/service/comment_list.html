@@ -8,16 +8,19 @@
 		<div class="news-main">
 		  <div class="card text-white bg-transparent border-0">
 			<div class="card-body">
-			<div class="row">
+			<div class="row ">
 				<div class="col-sm">
-				<h3 class="card-title p-1">{{comment.name}}</h2>
+				<p class="card-title p-1">Пользователь "{{comment.name}}"</p>
 				</div>
               	<div class="col-sm">
 				<p class="text-end">Опубликовано: {{comment.created|date:"d.m.Y"}}</p>
 				</div>
+				<hr>
 			</div>
 				<p class="card-text">{{comment.comment_text|linebreaks}}</p>
-			  
+				{% if user.is_staff %}
+                	<a href="{% url 'del_comment' comment.id %}" class="btn btn-danger">Удалить</a>
+                {% endif %}	
 			</div>
 		  </div>
 		</div>
@@ -30,13 +33,14 @@
 
 
 <!-- PAGINATION -->
-<div class="container-fluid col-md-10">
-        {% if page_obj.has_previous %}
+<div class="container-fluid col-md-10 text-center">
+		<hr>
+		{% if page_obj.has_previous %}
         	<a href="?page={{ page_obj.previous_page_number }}"><<</a>
 		{% endif %}
         
         {% if page_obj.paginator.num_pages > 1 %}
-		<hr>
+		
 			{% for i in page_obj.paginator.page_range %}
 				{% if i == page_obj.number %}
 					<a href="?page={{i}}" style="font-weight: bolder; color: orange; font-size: larger;">{{i}}</a>
@@ -49,11 +53,10 @@
         {% if page_obj.has_next %}
 			<a href="?page={{ page_obj.next_page_number }}">>></a>
         {% endif %}
+		<hr>
 </div>
 
 
-
-<hr>
-<h2><button class="btn-secondary"><a href="{% url 'new_comment' %}">Добавить отзыв</a></button></h2>
+<h2><button class="btn btn-secondary"><a href="{% url 'new_comment' %}">Добавить отзыв</a></button></h2>
 
 {%endblock content%}

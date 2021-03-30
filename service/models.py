@@ -55,7 +55,7 @@ class Comment(models.Model):
 	name = models.CharField(max_length=100)
 	email = models.EmailField(max_length=254, blank=True)
 	comment_text = models.TextField(
-		validators=[MinLengthValidator(2, message="Не меньше 2 символов")]
+		validators=[MinLengthValidator(2, message="Not enought data")]
 	)
 	created = models.DateTimeField(auto_now_add=True)
 	active = models.BooleanField(default=True)

@@ -2,10 +2,23 @@
 
 {%block content%}
 
+{% if category_list %}
+	<div class="container-fluid col-md-8">	
+		<p class="text-center">Перейти к категории:
+		{%for category in category_list %}
+				<a href="#{{category}}" style="color: indianred;">{{category}}</a>
+				{%if category.id == 1 %}
+					|
+				{%endif%}
+		{%endfor%}
+		</p>
+	</div>	
+{% endif %}
+
 {% regroup service_list by category as new %}
 {% for category in new %}
-<h2>{{ category.grouper}}</h2>
-	<div class="row">	
+<h2 id="{{category.grouper}}">{{ category.grouper}}</h2>
+	<div class="row">
 	{% for item in category.list %}				
 		<div class="col-md-4">
 		  <div class="card text-white bg-transparent border-0">
